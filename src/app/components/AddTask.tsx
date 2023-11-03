@@ -2,6 +2,7 @@
 
 import React, { useState, FormEvent, ChangeEvent } from 'react';
 import { addTodo } from '@/api';
+import { nanoid } from 'nanoid';
 
 const AddTask = () => {
   const [taskTitle, setTaskTitle] = useState('');
@@ -9,7 +10,7 @@ const AddTask = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    await addTodo({ id: '4', text: taskTitle });
+    await addTodo({ id: nanoid(), text: taskTitle });
 
     setTaskTitle('');
   };
